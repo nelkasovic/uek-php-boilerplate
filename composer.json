@@ -13,7 +13,8 @@
     },
     "autoload-dev": {
         "psr-4" : {
-            "Tests\\Example\\" : "tests/Example/"
+            "Tests\\Unit\\" : "tests/unit/",
+            "Tests\\Feature\\" : "tests/feature/"
         }
     },
     "require-dev": {

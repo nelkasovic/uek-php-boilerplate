@@ -4,8 +4,19 @@ namespace App;
 
 class Example
 {
-    protected bool $running = false;
-    protected string $greeting = '';
+    protected bool $running;
+    protected string $greeting;
+
+    public function __construct(bool $running = false, string $greeting = '')
+    {
+        $this->running = $running;
+        $this->greeting = $greeting;
+    }
+
+    public static function sayHello(): string
+    {
+        return "<h3>Hello Static World!</h3>";
+    }
 
     public function getRunning(): bool
     {

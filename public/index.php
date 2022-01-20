@@ -7,4 +7,6 @@ $example = new Example();
 
 $example->setGreeting('Hello World!');
 
-echo $example->getGreeting();
+echo '<h1>' . $example->getGreeting() . '</h1>';
+
+echo Example::sayHello();

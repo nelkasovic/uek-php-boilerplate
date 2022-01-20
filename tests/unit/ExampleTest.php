@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Example;
+namespace Tests\Unit;
 
 use App\Example;
 use PHPUnit\Framework\TestCase;
 
-class SimpleTest extends TestCase
+class ExampleTest extends TestCase
 {
 
     public function testShouldAssertTrue(): void
@@ -24,6 +24,7 @@ class SimpleTest extends TestCase
 
         $this->assertTrue($simple->setRunning(true)->getRunning());
         $this->assertFalse($simple->setRunning(false)->getRunning());
+        $this->assertSame($simple->setGreeting('Hello from test!')->getGreeting(), 'Hello from test!');
     }
 }
 
