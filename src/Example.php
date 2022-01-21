@@ -2,6 +2,8 @@
 
 namespace App;
 
+use JsonException;
+
 class Example
 {
     protected bool $running;
@@ -16,6 +18,21 @@ class Example
     public static function sayHello(): string
     {
         return "<h3>Hello Static World!</h3>";
+    }
+
+    public static function getData(): array
+    {
+        return ['data' => 'Hello World!', 'status' => true];
+    }
+
+    /**
+     * @throws JsonException
+     */
+    public static function getDataJsonized()
+    {
+        $data = self::getData();
+
+        return Response::json($data);
     }
 
     public function getRunning(): bool

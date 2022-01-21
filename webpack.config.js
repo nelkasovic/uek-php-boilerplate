@@ -24,4 +24,7 @@ module.exports = {
             },
         ]
     },
+    stats: {
+        modules: false,
+    },
 };

@@ -20,6 +20,12 @@ echo '<h1>' . $example->getGreeting() . '</h1>';
 
 echo Example::sayHello();
 
+try {
+    echo Example::getDataJsonized();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
 ?>
 <script src="./dist/bundle.js"></script>
 </body>

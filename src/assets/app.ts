@@ -6,7 +6,12 @@ import './app.css'
 import * as moment from 'moment';
 
 /**
- * @see https://www.typescriptlang.org/docs/handbook/classes.html
+ * @see https://github.com/axios/axios
+ */
+const axios = require('axios').default;
+
+/**
+ * @see https://www.typescriptlang.org/docs/handbook/2/classes.html
  */
 class HelloWorld {
     greeting: string;
@@ -16,7 +21,7 @@ class HelloWorld {
     }
 
     /**
-     * @see https://www.typescriptlang.org/docs/handbook/functions.html
+     * @see https://www.typescriptlang.org/docs/handbook/2/functions.html
      */
     greet() {
         return "Hello, " + this.greeting;
@@ -72,12 +77,43 @@ class HelloWorld {
     handleClick() {
         console.log("Clicked!");
     }
+
+    apiCall() {
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then(function (response: any) {
+                response.data.filter((item: any) => {
+                    return item.userId === 2;
+                }).forEach((item: any) => {
+                    console.log(item.title)
+                });
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            })
+            .then(function () {
+                console.log('Api call to https://jsonplaceholder.typicode.com/posts done...')
+            });
+    }
+
+    apiCallParams() {
+        axios.get('https://jsonplaceholder.typicode.com/posts', {
+            params: {
+                id: 5
+            }
+        }).then(function (response: any) {
+            console.log(response.data);
+        }).catch(function (error: any) {
+            console.log(error);
+        }).then(function () {
+            console.log('Api call to https://jsonplaceholder.typicode.com/posts?id=1 done...')
+        });
+    }
+
 }
 
 let helloWorld = new HelloWorld("world")
 
-helloWorld.greet();
+helloWorld.greet()
 helloWorld.init()
-
-
-
+helloWorld.apiCall()
+helloWorld.apiCallParams()
