@@ -109,6 +109,19 @@ class HelloWorld {
         });
     }
 
+    apiCallInternal() {
+        axios.get('http://localhost:8000/api.php')
+            .then(function (response: any) {
+                console.log(response)
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            })
+            .then(function () {
+                console.log('Api call to http://localhost:8000/api.php done...')
+            });
+    }
+
 }
 
 let helloWorld = new HelloWorld("world")
@@ -117,3 +130,4 @@ helloWorld.greet()
 helloWorld.init()
 helloWorld.apiCall()
 helloWorld.apiCallParams()
+helloWorld.apiCallInternal()
