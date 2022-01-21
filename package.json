@@ -1,0 +1,40 @@
+{
+  "name": "phpboilerplate",
+  "version": "1.0.0",
+  "description": "PHP Boilerplate",
+  "main": "app.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm test",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelkasovic/uek-php-boilerplate.git"
+  },
+  "keywords": [
+    "php"
+  ],
+  "author": "Nermin Elkasovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nelkasovic/uek-php-boilerplate/issues"
+  },
+  "homepage": "https://github.com/nelkasovic/uek-php-boilerplate#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "css-loader": "^6.5.1",
+    "moment": "^2.29.1",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

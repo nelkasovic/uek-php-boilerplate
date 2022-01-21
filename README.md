@@ -2,17 +2,17 @@
 
 This repository shows a basic setup for a PHP package or application in PHP.
 
-## PHP Versions
-
-This version will work on PHP version 8.0 and above.
-
-For a version which is compatible with PHP 7.4 and above select the 7.4 Git tag ([github.com/elliotjreed/php-package-boilerplate/tree/7.4](https://github.com/elliotjreed/php-package-boilerplate/tree/7.4)).
+PHP is a general-purpose server-side scripting language primarily used in web development. Originally created by Rasmus Lerdorf in 1994, it is now by The PHP Development Team. PHP originally stood for "Personal Home Page", but now stands for "PHP: Hypertext Preprocessor".
 
 ## Getting Started
 
 PHP 8.0 or above and Composer is expected to be installed on our system.
 
 ### Installing Composer
+
+PHP packages were traditionally installed via PEAR (PHP Extension and Application Repository), but more recently the standard package and dependency management tool is Composer.
+
+Composer lets us run install commands to add packages to our system, for example `composer require phpunit` would add the unit testing framework PHPUnit to our system.
 
 For instructions on how to install Composer visit [getcomposer.org](https://getcomposer.org/download/).
 
@@ -31,64 +31,6 @@ php composer.phar install
 ```
 
 This will install all dependencies needed for the project.
-
-## Running the Tests
-
-All tests can be run by executing
-
-```bash
-vendor/bin/phpunit
-```
-
-`phpunit` will automatically find all tests inside the `test` directory and run them based on the configuration in the `phpunit.xml` file.
-
-### Testing Approach
-
-The test for the class `Greeting` verifies that the return value of the `sayHello` method returns the string "Hello {name}", where {name} is the value passed through to the constructor.
-
-## Running the Application
-
-PHP has an in-built server for local development. This can be started by executing
-
-```
-php -S localhost:8000 -t public
-```
-
-Then open your browser at `http://localhost:8000/example.php`
-
-You should see the text "Hello Ada Lovelace" on your screen.
-
-## Built With
-
-- [PHP](https://secure.php.net/)
-- [Composer](https://getcomposer.org/)
-- [PHPUnit](https://phpunit.de/)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-
-# PHP Package boilerplate project explanation
-
-PHP is a general-purpose server-side scripting language primarily used in web development. Originally created by Rasmus Lerdorf in 1994, it is now by The PHP Development Team.
-
-PHP originally stood for "Personal Home Page", but now stands for "PHP: Hypertext Preprocessor".
-
-## Further Material
-
-- Homepage: [php.net](https://secure.php.net/)
-- Documentation: [php.net/docs.php](https://secure.php.net/docs.php)
-- PHP: The Right Way: [phptherightway.com](http://www.phptherightway.com/)
-- Interactive PHP Tutorial: [learn-php.org](http://www.learn-php.org/)
-
-## Topics, Tools and Terms
-
-PHP packages were traditionally installed via PEAR (PHP Extension and Application Repository), but more recently the standard package and dependency management tool is Composer.
-
-Composer lets us run install commands to add packages to our system, for example `composer require phpunit` would add the unit testing framework PHPUnit to our system.
-
-For instructions on how to install Composer visit [getcomposer.org](https://getcomposer.org/download/).
 
 ### Dependency Management
 
@@ -134,15 +76,19 @@ composer update
 
 Composer will also generate a `composer.lock` file on each `composer update` and the initial `composer install`. This is not meant to be edited directly, it tells Composer to use specific versions of packages - particularly useful when hyhou want your development dependencies to match what you will push to production.
 
-### Testing Tools
+## Running the Tests
 
-There are a number of testing tools available for PHP. The most popular one is [PHPUnit](https://phpunit.de/). PHPUnit follows the classic xUnit approach.
+All tests can be run by executing
 
-[Behat](http://behat.org/en/latest/) is the most popular behaviour-driven development (BDD) testing framework.
+```bash
+vendor/bin/phpunit
+```
 
-[Codeception](http://codeception.com/) is a framework combining BDD, unit testing, and integration testing, and is cross-compatible with PHPUnit.
+`phpunit` will automatically find all tests inside the `test` directory and run them based on the configuration in the `phpunit.xml` file.
 
-In this guide we will be using PHPUnit as the testing framework.
+### Testing Approach
+
+The test for the class `Example` verifies that the methods returns the correct values.
 
 ## Directory Structure
 
@@ -169,31 +115,54 @@ Tests match their production code file names with a `Test` suffix, e.g. tests fo
 
 The main application consists of basically two files:
 
-- `public/example.php` is the main executable that instantiates and runs:
-    - `src/Example/Greeting.php` contains the main application.
+- `public/index.php` is the main executable that instantiates and runs:
+  - `src/Example.php` contains the main application.
 
 ### Running the Tests
 
 All tests can be run by executing
 
 ```bash
-vendor/phpunit/phpunit/phpunit
+vendor/bin/phpunit
 ```
 
 `phpunit` will automatically find all tests inside the `test` directory and run them based on the configuration in the `phpunit.xml` file.
-
-#### Testing Approach
-
-The test for the class `Greeting` verifies that the return value of the `sayHello` method returns the string "Hello {name}", where {name} is the value passed through to the constructor.
 
 ### Running the Application
 
 PHP has an in-built server for local development. To run this change into the directory `public` and run
 
 ```bash
-php -S localhost:8000
+php -S localhost:8000 
 ```
 
-Then open your browser at `http://localhost:8000/example.php`
+You also can start outside the public directory with
 
-You should see the text "Hello Ada Lovelace" being printed.
+```bash
+php -S localhost:8000 -t public
+```
+
+Then open your browser at `http://localhost:8000` and sou should see the text "Hello World" being printed.
+
+## Further Material
+
+- [PHP](https://secure.php.net/)
+- [Composer](https://getcomposer.org/)
+- [PHPUnit](https://phpunit.de/)
+- [php.net/docs.php](https://secure.php.net/docs.php)
+- [phptherightway.com](http://www.phptherightway.com/)
+- [learn-php.org](http://www.learn-php.org/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Testing Tools
+
+There are a number of testing tools available for PHP. The most popular one is [PHPUnit](https://phpunit.de/). PHPUnit follows the classic xUnit approach.
+
+[Behat](http://behat.org/en/latest/) is the most popular behaviour-driven development (BDD) testing framework.
+
+[Codeception](http://codeception.com/) is a framework combining BDD, unit testing, and integration testing, and is cross-compatible with PHPUnit.
+
+In this guide we will be using PHPUnit as the testing framework.
